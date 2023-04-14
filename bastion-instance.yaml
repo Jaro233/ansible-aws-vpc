@@ -4,7 +4,7 @@
   gather_facts: no
   tasks:
     - name: Import VPC setup variable
-      include_vars: vars/bastion_setup
+      include_vars: vars/vpc_setup
 
     - name: Import VPC setup variable
       include_vars: vars/output_vars
@@ -18,7 +18,7 @@
     - name: Save private key into bastion-key.pem
       copy:
         content: "{{key_out.key.private_key}}"
-        dest: "./baston-key.pem"
+        dest: "./bastion-key.pem"
         mode: 0600
       when: key_out.changed
 
