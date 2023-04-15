@@ -171,4 +171,4 @@
       register: mysql01_out
 
     - debug:
-        var: db01_out
+        var: mysql01_out
