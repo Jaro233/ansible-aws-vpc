@@ -195,11 +195,11 @@
       blockinfile:
         path: provision-stack/group_vars/hostsip
         block: |
-          web01_ip: {{web01_out.tagged_instances[0].private_id}}
-          app01_ip: {{app1_out.tagged_instances[0].private_id}}
-          mc01_ip: {{mc01_out.tagged_instances[0].private_id}}
-          rmq01_ip: {{rmq01_out.tagged_instances[0].private_id}}
-          mysql01_ip: {{mysql01_out.tagged_instances[0].private_id}}
+          web01_ip: {{web01_out.tagged_instances[0].private_ip}}
+          app01_ip: {{app1_out.tagged_instances[0].private_ip}}
+          mc01_ip: {{mc01_out.tagged_instances[0].private_ip}}
+          rmq01_ip: {{rmq01_out.tagged_instances[0].private_ip}}
+          mysql01_ip: {{mysql01_out.tagged_instances[0].private_ip}}
 
     - name: Copy login key to provision-stack directory
       copy:
@@ -211,11 +211,11 @@
       blockinfile:
         path: provision-stack/inventory-vpro
         block: |
-          web01 ansible_host={{web01_out.tagged_instances[0].private_id}}
-          app01 ansible_host={{app1_out.tagged_instances[0].private_id}}
-          mc01 ansible_host={{mc01_out.tagged_instances[0].private_id}}
-          rmq01 ansible_host={{rmq01_out.tagged_instances[0].private_id}}
-          mysql01 ansible_host={{mysql01_out.tagged_instances[0].private_id}}
+          web01 ansible_host={{web01_out.tagged_instances[0].private_ip}}
+          app01 ansible_host={{app1_out.tagged_instances[0].private_ip}}
+          mc01 ansible_host={{mc01_out.tagged_instances[0].private_ip}}
+          rmq01 ansible_host={{rmq01_out.tagged_instances[0].private_ip}}
+          mysql01 ansible_host={{mysql01_out.tagged_instances[0].private_ip}}
           cntl ansible_host=127.0.0.1 ansible_connection=local
 
           [websrvgrp]
