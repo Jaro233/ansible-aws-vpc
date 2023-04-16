@@ -69,7 +69,7 @@
       service: 
         name: tomcat8
         state: started
-        enable: yes
+        enabled: yes
       tags: 
         - svc
 
