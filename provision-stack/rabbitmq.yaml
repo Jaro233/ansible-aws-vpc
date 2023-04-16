@@ -2,18 +2,19 @@
   hosts: rmqsrvgrp
   gather_facts: no
   tasks:
+    - name: Install an Erlang Solution public key
+      apt_key:
+        url: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xf77f1eda57ebb1cc
+        state: present
+      tags:
+        - package
+        
     - name: Install Erlang Repository Package
       apt_repository:
         repo: deb http://ppa.launchpad.net/rabbitmq/rabbitmq-erlang/ubuntu focal main
       tags:
         - package
     
-    - name: Install and Erlang Solution public key
-      apt_key:
-        url: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xf77f1eda57ebb1cc
-        state: present
-      tags:
-        - package
 
     - name: Install Erlang
       apt:
