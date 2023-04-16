@@ -11,20 +11,22 @@
       tags:
         - package
 
-    - name: Start & enable Nginx
+    - name: Start & ENable Nginx
       service:
         name: nginx
         state: started
         enabled: yes
       tags:
         - svc
-    
-    - name: Disable nginx default website
+
+
+    - name: Disable Nginx default website
       file:
         path: /etc/nginx/sites-enabled/default
         state: absent
       tags:
         - conf
+
 
     - name: Deploy web config file
       template:
@@ -32,17 +34,18 @@
         dest: /etc/nginx/sites-available/vproapp
       tags:
         - conf
-    
+
+
     - name: Enable vproapp website
-      file: 
+      file:
         src: /etc/nginx/sites-available/vproapp
         dest: /etc/nginx/sites-enabled/vproapp
         state: link
       notify:
         - Restart Nginx
-      tags: 
+      tags:
         - conf
-  
+
   handlers:
     - name: Restart Nginx
       service:
