@@ -23,7 +23,7 @@
         name: mysql
         state: started
         enabled: yes
-      tags: 
+      tags:
         - svc
 
     - name: creating mysql user
@@ -34,7 +34,8 @@
         host: '%'
         state: present
 
-    - name: Creating accounts db
+
+    - name: Creating accounts DB
       mysql_db:
         name: "{{dbname}}"
         state: present

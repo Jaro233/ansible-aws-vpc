@@ -2,13 +2,13 @@
   hosts: mysqlsrvgrp
   gather_facts: no
   tasks:
-    - name: Copy SQL to mysqlsrv
+    - name: Copy SQL to dbsrv
       copy:
         src: files/db_backup.sql
         dest: /tmp/db_backup.sql
-      tags: 
+      tags:
         - deploy
-    
+
     - name: Restoring DB
       mysql_db:
         name: "{{dbname}}"
@@ -19,7 +19,8 @@
       notify:
         - Restart mysql
       tags:
-        - deploy 
+        - deploy
+
 
   handlers:
     - name: Restart mysql
