@@ -3,7 +3,7 @@
   gather_facts: no
   tasks:
     - name: Install Erlang Repository Package
-      apt:
+      apt_repository:
         deb: deb http://ppa.launchpad.net/rabbitmq/rabbitmq-erlang/ubuntu focal main
       tags:
         - package
