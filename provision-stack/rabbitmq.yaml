@@ -32,7 +32,7 @@
         - package
 
     - apt_repository:
-        repo: deb https://packagecloud.io/rabbitmq/rabbitmq-server/ubuntu/ bionic main
+        repo: deb https://packagecloud.io/rabbitmq/rabbitmq-server/focal/ focal main
         state: present
       tags:
         - package
