@@ -24,15 +24,8 @@
       tags:  
         - package
 
-    - name: Add an Apt signing key, uses whichever key is at the URL
-      apt_key:
-        url: https://dl.cloudsmith.io/public/rabbitmq/rabbitmq-server/gpg.9F4587F226208342.key
-        state: present
-      tags:
-        - package
-
     - apt_repository:
-        repo: deb [signed-by=/usr/share/keyrings/io.packagecloud.rabbitmq.gpg] https://packagecloud.io/rabbitmq/rabbitmq-server/ubuntu/ bionic main
+        repo: deb [signed-by=/usr/share/keyrings/io.cloudsmith.rabbitmq.9F4587F226208342.gpg] https://dl.cloudsmith.io/public/rabbitmq/rabbitmq-server/deb/ubuntu bionic main
         state: present
       tags:
         - package
