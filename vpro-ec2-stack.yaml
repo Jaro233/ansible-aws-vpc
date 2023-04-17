@@ -18,7 +18,7 @@
     - name: Save private key into loginkey-vpro.pem
       copy:
         content: "{{vprokey_out.key.private_key}}"
-        dest: "./loginkey-vpro.pem"
+        dest: "./loginkey_vpro.pem"
         mode: 0600
       when: vprokey_out.changed
 
@@ -245,5 +245,5 @@
 
           [stack_inst:vars]
           ansible_user=ubuntu
-          ansible_ssh_private_key_file=loginkey-vpro.pem
+          ansible_ssh_private_key_file=loginkey_vpro.pem
           #ansible_python_interpreter=/usr/bin/python3
